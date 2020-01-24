@@ -1,7 +1,6 @@
 ---
-title: 'EDA HW1: Serie A League Analysis for AS Roma'
-author: 'Group 6: Kexin Liang, Nitin Wahie, Chia-Hsuan Chou, Patrick Hoban, Rekha
-  Mohandass, Aadarsh Gupta'
+title: 'Roster Association Mining'
+author: 'Aadarsh Gupta'
 date: "9/28/2019"
 output:
   pdf_document: 
