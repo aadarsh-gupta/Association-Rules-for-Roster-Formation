@@ -33,19 +33,19 @@ The numerous steps were following:
 
 Roma has consistenly been a top-6 team in Serie A for many years now, occasionally finishing in top 2 as well. 2014 was a great year for the club where, the team won the Serie A, beating the opponents Juventus in a close 2 horse race. The figure below shows how Roma has performed over the 8 seasons in terms of match results. 
 
-<img src = "images/roma_perf.png", style = "zoom:35%">
+<img src = "images/roma_perf.png", style = "zoom:35%;">
 
 
 Following, I looked at the performance through the seasons (visualizing the different stages of a Serie A league season). Through this, it can be seen that a contrast in how the performance goes as the season progresses.
 
-<img src = "images/roma_2008-12.png", style = "zoom:35%">
+<img src ="images/roma_2008-12.png" style ="zoom:35%;"/>
 
-<img src = "images/roma_2012-16.png", style = "zoom:35%">
-  
+<img src ="images/roma_2012-16.png" style ="zoom:35%;"/>
+   
   
 Further, I find out the the top opponents for Roma using through the below plot. They are Juventus, Sampdoria, Palermo, Genoa and Napoli.
   
-<img src = "images/roma_opp.png", style = "zoom:35%">
+<img src ="images/roma_opp.png" style = "zoom:35%;"/>
   
 <b> This will help in the further analysis, where I look at the loss patterns for Roma vs the opponents and find out the gaps that can be explored. </b>
 
