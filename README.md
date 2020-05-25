@@ -62,26 +62,32 @@ Below, I identify the rules leading to the losses for the 5 teams discovered abo
 
 <img src = "images/roma_loss.png" style ="zoom:25%;">
 <br>
+
     2. Juventus Losses
 
 <img src = "images/juve_loss.png" style ="zoom:25%;">
 <br>
+
     3. Sampdoria Losses
 
 <img src = "images/samp_loss.png" style ="zoom:25%;">
 <br>
+
     4. Palermo Losses
 
 <img src = "images/palermo_loss.png" style ="zoom:25%;">
 <br>
+
     5. Genoa Losses
 
 <img src = "images/genoa_loss.png" style ="zoom:25%;">
 <br>
+
     6. Napoli Losses
 
 <img src = "images/napoli_loss.png" style ="zoom:25%;">
 <br>
+
 
 ## Final Thoughts and Conclusions
 
