@@ -53,10 +53,71 @@ Further, I find out the the top opponents for Roma using through the below plot.
   
 <b> This will help in the further analysis, where I look at the loss patterns for Roma vs the opponents and find out the gaps that can be explored. </b>
 
+<b> Association Rule Mining </b>
+
+Below, I identify the rules leading to the losses for the 5 teams discovered above using apriori rules. 
 
 
+1. Roma Losses
+
+<img src = "images/roma_loss.png" style ="zoom:35%;">
+
+2. Juventus Losses
+
+<img src = "images/juve_loss.png" style ="zoom:35%;">
+
+3. Sampdoria Losses
+
+<img src = "images/samp_loss.png" style ="zoom:35%;">
+
+4. Palermo Losses
+
+<img src = "images/palermo_loss.png" style ="zoom:35%;">
+
+5. Genoa Losses
+
+<img src = "images/genoa_loss.png" style ="zoom:35%;">
+
+6. Napoli Losses
+
+<img src = "images/napoli_loss.png" style ="zoom:35%;">
+
+
+## Final Thoughts and Conclusions
+
+
+<b>Juventus </b>
+
+* If we set up a team with fast forwards and defenders who can have the vision to spot a forward's run, we can get the better of Juventus
+
+* Another approach would be to have a mid-field with players can shoot and finish well. In this case, we don't need defenders with high vision
+  
+  
+<b> Sampdoria </b>
+* The best way to setup against Sampdoria is to include box to box mid-fielders with high stamina. These will help turn defense to attack in games. They can be set with forwards with high finishing and volleying skills to make the most of the attacking move
+  
+  
+<b> Palermo </b>
+* Midfield is the key to beating Palermo. Mid-fielders with high ball playing skills increase the chances of winning against Palermo. In addition, on occasions, high conversion accuracy from free kicks helps
+
+* If we can combine the above mid-field with defenders to mark the Palermo strikers, we push up our chances of win further up.
+
+<b> Genoa </b>
+* Against Genoa as well, mid-field is the key as a midfielder's scoring ability leads to more wins than often
+  
+    
+<b> Napoli </b>
+* Against Napoli, a combination of technical defenders and mid-fielders who can finish yields the best resutls
+
+* As an alternative, taking the possesion of the ball in the mid-field helps as well. So a long pass from keeper to the mid-field and mid-fielders with good jumping ability helps to maintain possession
+  
+  
+<b> Other Recommendations </b>
+
+We also see that in recent seasons (2012 onwards), Roma's performance tends to drop during the middle of the campaign. While this may be due to fatigue towards the christmas period or the lack of practice during the wintery holiday season, a week long training camp at a warmer climate can help improve the match fitness of the players as well as set the rhythm for the reminder of the season. This may also be helpful in getting the better start to the second half of the campaign compared to our rivals who go sluggish.  
+  
+   
 ## Other use cases of the approach
-
 
 We can combine this with further approaches like clustering to hone in onto the desired objective we want to achieve in any kind of data:
 
