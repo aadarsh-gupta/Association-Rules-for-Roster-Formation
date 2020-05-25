@@ -58,30 +58,30 @@ Further, I find out the the top opponents for Roma using through the below plot.
 Below, I identify the rules leading to the losses for the 5 teams discovered above using apriori rules. 
 
 
-1. Roma Losses
+    1. Roma Losses
 
 <img src = "images/roma_loss.png" style ="zoom:35%;">
-
-2. Juventus Losses
+<br>
+    2. Juventus Losses
 
 <img src = "images/juve_loss.png" style ="zoom:35%;">
-
-3. Sampdoria Losses
+<br>
+    3. Sampdoria Losses
 
 <img src = "images/samp_loss.png" style ="zoom:35%;">
-
-4. Palermo Losses
+<br>
+    4. Palermo Losses
 
 <img src = "images/palermo_loss.png" style ="zoom:35%;">
-
-5. Genoa Losses
+<br>
+    5. Genoa Losses
 
 <img src = "images/genoa_loss.png" style ="zoom:35%;">
-
-6. Napoli Losses
+<br>
+    6. Napoli Losses
 
 <img src = "images/napoli_loss.png" style ="zoom:35%;">
-
+<br>
 
 ## Final Thoughts and Conclusions
 
