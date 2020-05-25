@@ -1,52 +1,8 @@
 ---
-title: 'Roster Association Mining'
 author: 'Aadarsh Gupta'
 date: "9/28/2019"
-output:
-  pdf_document: 
-    df_print: paged
-    latex_engine: xelatex
-toc: true
 ---
 
-
-### Introduction  
-We have been tasked by the coach of the futbol team AS Roma to find non-obvious patterns that he can exploit to increase success for his team on the field. 
-
-Serie A is the professional Italian futbol league in which AS Roma competes. The league is comprised of 20 teams in the first division. Each team is awarded 3 points for a win, 1 point for a draw and 0 points for a loss for every game during the regular season. 
-
-Dataset is pulled from EA Sports.  EA Sports FIFA is annually one of the best selling games in the world.  In 2019 EA sold 20 million units ($1,200,000,000 in estimated sales) of their popular FIFA '19 video game and another 3 million units ($120,000,000 US dollars) of the 2018 version FIFA '18.  The broad appeal of the game is due in large part to Electronic Arts ability to mimic the real world playing styles, abilities, and visuals of teams around the world.
-
-https://gadgets.ndtv.com/games/news/fifa-19-sales-flat-thanks-to-fifa-18-says-ea-1989300
-
-### Complication
-Wins are necessary for AS Roma, not only to remain in the Serie A league, but also to improve club profitability. Beyond the obvious merchandising and television broadcast benefits that come with a winning record, Serie A also boasts total prize money of nearly 1 billion euros each year. The top 4 teams in the Serie A each year advance to the UEFA Champions League where an additional 1.3 billion euros is dispersed among the competing teams. 12.7 million euros of which is provided to each team upon qualifying. 5th and 6th place teams in Serie A each year qualify for the UEFA Europa Cup where teams earn 2.6 million euros with bonuses of 360k euros per win.
-
-https://en.wikipedia.org/wiki/Serie_A
-https://en.wikipedia.org/wiki/UEFA_Europa_League
-https://en.wikipedia.org/wiki/UEFA_Champions_League
-https://www.goal.com/en-us/news/premier-league-tv-prize-money-vs-champions-league-la-liga/2rkcwfj4whaz15b0bhf378l3t
-
-
-## Question & Approach
-### Key Question
-Which combination of AS Roma players based on player attributes should we field for each game in order to maximize the number of wins and or points earned during the regular season?
-
-### Approach Outline
-
-* Exploratory analysis to visualize the performance of AS Roma in the Serie A for last 8 seasons as well as key opponents
-* Using Team attributes to find patterns associated to AS Roma's performance
-* Using Player attributes to find patters associated with Key Oppenent's 
-* Recommendations based on the above analyses and observations
-
-## Analysis
-
-#### Data Overview
-For this analysis, we look into data present as the following data tables:
-** match : Contains each match played in the last 8 seasons
-** player_atts attributes : Attributes of all the players 
-** team_atts : Attributes for all the teams
-** teams : Team IDs for all teams in Europe
 
 ```{r, include = 'FALSE'}
 knitr::opts_chunk$set(echo = TRUE)
@@ -108,10 +64,6 @@ roma_all_match[roma_all_match$goal_diff < 0, ]$result = 'loss'
 roma_all_match[roma_all_match$goal_diff == 0, ]$result = 'draw'
 ```
 
-### Assumptions / Scope
-Pursuing new players and player trades can be an expensive and time consuming with no guarantee that other teams will be willing to accept the terms or for which players they would be willing to trade. As such, initially we scope our analysis down to working only with existing players already on our AS Roma team roster.
-
-In terms of teams and opponents, we will work first to identify opportunities within the existing Serie A league of 20 teams.  Where each season AS Roma will encounter each of the other 19 teams twice, playing once at home and once away for a total of 38 games.
 
 ### Exploratory Analysis 
 #### How have we been doing previously?  How are we doing currently?  
@@ -224,9 +176,6 @@ ggplot(roma_all_matches_attr_match, aes(x = season, fill = match_result)) +
 ```
   
   
-We first look at AS Roma's performance in Serie A over the last 8 league seasons and find out that we win close to 50% of games every season. We also see that our win percentage has gone up in the last three seasons on an average, with fewer losses. 
-Moreover, the number of drawn games has increased in the last two seasons, with more than 10 games drawn in these seasons.
-
 
 ##### Roma League performance by Stages in a season  
 
@@ -259,8 +208,6 @@ ggplot(roma_all_matches_attr_match %>%
 ```
   
 
-However, looking at the last 4 years, we see an almost opposite trend in our performances in the league. In the last 4 seasons, we have started strong, but tend to slow down towards the middle of the season. 
-Finally we again pick up some pace towards the end of the season.  
 
 
 ```{r}
@@ -274,10 +221,7 @@ ggplot(roma_all_matches_attr_match, aes(x = stage, fill = match_result)) +
                                          'Loss' ='dark red'))
 
 ```
-  
-  A key observation when looking at all the games over the last 8 seasons is the number of losses or draws for stage 18. This stage is often around the winter break in the league and may correspond to the fatigue of players.  
-    
-    
+ 
 
 #### What are our biggest challenges?  Who are our key competitors? 
 
@@ -296,12 +240,9 @@ ggplot(melted_in %>% filter(value >2 & Var2 == 'Loss'), aes(reorder(Var1,-value)
   theme(text = element_text(size=10))
 ```
   
-  From the above plot, we see that in the last 8 seasons, we have had the hardest time while facing Juventus, losing 10 of the 16 times we faced them. Other difficult rivals for us have been Sampdoria, Genoa, Napoli and Palermo.  
-  
 
 #### Is there a way to adjust Home vs Away Game Performance?
 
-Another idea was to pursue strategy differences between home and away game performance. Looking at wins at home vs wins away there is a distinct difference. We are consistently losing more games away and winning far lesser. 
 
 ```{r}
 roma_win_match = roma_all_match[roma_all_match$result == 'win',]
@@ -322,19 +263,6 @@ ggplot(roma_win_match, aes(season, n, col = type, group = type)) +
   theme(plot.title = element_text(size = 12))
 ```
 
-
-While this seems like a large gap initially, industry and domain knowledge led us away from pursuing this strategy. While it is widely known that teams will naturally perform better playing at home, as opposed to playing away. And there are many factors that are suspected as contributing to this phenomenon.  
-Unfortunately, there are few we would be able to identify and fewer of these environmental factors that we could directly impact or change. The league allows fields to be wider or longer to a certain degree and training and playing on these varying field sizes may prove effective for different strategies, but cost in millions and time of implementation is prohibitive at best for any kind of stadium and practice facility remodeling. Another example for this correlation between home field advantage could be weather and while we pray constantly for AS Roma championships, unfortunately for good reason, we don't foresee God granting us the ability to control weather as a factor.
-
-
-### Can we identify patterns in team attributes leading to win/loss of AS Roma?
-    
-Our next thought was to utilize team attributes to identify and set up playing style for the team so that the coach can fit players into the general style. Potentially you could fit many different players into any one playing style leaving more flexibility in approach. For instance, if we could utilize our best players and train them to play a specific style for each game, this would be far less limiting than a strategy that expanded to potentially require player trades.
-
-However, as we began to explore the data, we quickly found that team attributes data start only in 2010 and change out only once per year. As such, predicting a season with the same set of players, would not allow you to see any changes. Predicting team attributes across multiple seasons with a low threshold and support, you start to see some variables appear more consistently.
-    
-We still tried to run the association rules on these team attributes, and the results are shown below.
-  
   
 #### Finding associations from the Team attributes that lead to Roma Win
 ```{r, include=FALSE}
@@ -368,8 +296,7 @@ association.rules.2 <- apriori(roma_all_matches_trans,parameter = list(supp = 0.
 plot(association.rules.2, method = 'paracoord')
 ```
   
-  Running the rules based on Roma's wins resulted in too many rules all mixed together (even with a low threshold), indicating that there may be absence of any pattern in our wins, or to put it plainly, any of the above combinations (as specified by the y-axis in the plot above) could result in a win for us if we play at home. 
-  
+
   
 #### Finding associations from the Team attributes that lead to Roma Loss
 ```{r, include=FALSE}
@@ -388,20 +315,6 @@ association.rules.3 <- apriori(roma_all_matches_trans,
 plot(association.rules.3, method = 'paracoord') 
  
 ```
-  
-  We then tested on the the matches AS Roma loses. As the graph suggests, the medium defence pressure, shooting chance creation and playing as away team lead to loss. However, it's difficult to plan strategy based on the medium metrics. Also, we already know that playing as away team naturally create weakness to the team.
-  
-  
-
-### Can we identify patterns in player attributes leading to win/loss of any team?  
-
-We then moved to identify attributes of the players that serve as ingredients in deciding at match's result. In this case, wanted to find the weaknesses of our top opponents that could help us set up team to get a positive result next time when we face them. 
-
-#### Is there a specific set of player attributes that appear more frequently and correlate with one of our opponents losing a match?
-
-Since the team attributes cannot provide sufficient information for strategic plan, we decided to dive deeper to see if for a certain opposing team, there were specific combinations of player attributes by position the coach could mimic to in order to defeat the opponent.
-
-We found out AS Roma loses most often to Juventus in previous exploratory analysis, so we ran association rule against it first. Below we perform data transformation to arrive at the format of transactions we need to perform association nanalysis.
     
 #### Data Transformation
 
@@ -416,7 +329,6 @@ In order to achieve the association rules above, we need to transform the origin
 
 ##### Filtering out all the matches that Juventus participates
 
-We filter all the matches Juventus participates throughout the years, and add the result label based on the goal difference in the data.
 
 ```{r}
 juventus = 'Juventus'
@@ -1066,10 +978,7 @@ write.csv(all_trans_ar,'juventus.csv')
 ```
 
 ## Findings and Recommendations
-While aiming for the maximum points, we want to have a set of players that give us winning results. Utilizing results from the association rules analysis relating to our opponents' losses.
-This way, we set up our team to perform better against the opponents we typically lose the most. 
 
-Based on our findings from the association analysis for each of our top opponents,we recommend strategies to field players with specific attributes and abilities for different areas of the field.
 
 ##### Juventus
 
@@ -1097,12 +1006,6 @@ inspect(rules_lift[1:10])
 # plot(rules_lift[1:5], method = 'graph', engine = 'htmlwidget')
 plot(rules_lift[1:10], method = 'paracoord')
 ```
-
-##### Recommendations against Juventus
-
-If we set up a team with fast forwards and defenders who can have the vision to spot a forward's run, we can get the better of Juventus
-
-Another approach would be to have a mid-field with players can shoot and finish well. In this case, we don't need defenders with high vision. 
 
 
 #### Sampdoria 
@@ -1767,11 +1670,6 @@ inspect(rules_lift[1:10])
 plot(rules_lift[1:10], method = 'paracoord')
 ```
 
-##### Recommendations against Sampdoria
-
-The best way to setup against Sampdoria is to include box to box mid-fielders with high stamina. These will help turn defense to attack in games. They can be set with forwards with high finishing and volleying skills to make the most of the attacking move
-
-
 #### Palermo
 
 ```{r, include = FALSE}
@@ -2435,12 +2333,6 @@ inspect(rules_lift[1:10])
 plot(rules_lift[1:10], method = 'paracoord')
 ```
 
-##### Recommendations against Palermo
-
-Midfield is the key to beating Palermo. Mid-fielders with high ball playing skills increase the chances of winning against Palermo. In addition, on occasions, high conversion accuracy from free kicks helps
-
-If we can combine the above mid-field with defenders to mark the Palermo strikers, we push up our chances of win further up.
-
 
 #### Genoa 
 
@@ -3103,10 +2995,6 @@ inspect(rules_lift[1:10])
 # plot(rules_lift[1:5], method = 'graph', engine = 'htmlwidget')
 plot(rules_lift[1:10], method = 'paracoord')
 ```
-  
-##### Recommendations against Genoa
-
-Against Genoa as well, mid-field is the key as a midfielder's scoring ability leads to more wins than often.
 
 
 #### Napoli 
@@ -3771,16 +3659,4 @@ inspect(rules_lift[1:10])
 # plot(rules_lift[1:5], method = 'graph', engine = 'htmlwidget')
 plot(rules_lift[1:10], method = 'paracoord', title = "Parallel Coordinates plot for Napoli's Loss")
 ```
-
-##### Recommendations against Napoli
-
-Against Napoli, a combination of technical defenders and mid-fielders who can finish yields the best resutls
-
-As an alternative, taking the possesion of the ball in the mid-field helps as well. So a long pass from keeper to the mid-field and mid-fielders with good jumping ability helps to maintain possession.
-
-
-### Other Recommendations
-
-We also see that in recent seasons (2012 onwards), Roma's performance tends to drop during the middle of the campaign. While this may be due to fatigue towards the christmas period or the lack of practice during the  wintery holiday season, a week long training camp at a warmer climate can help improve the match fitness of the players as well as set the rhythm for the reminder of the season. This may also be helpful in getting the better start to the second half of the campaign compared to our rivals who go sluggish.
-
 
