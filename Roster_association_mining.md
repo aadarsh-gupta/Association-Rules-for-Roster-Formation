@@ -1,6 +1,4 @@
 
-<b>author: </b> Aadarsh Gupta <br>
-<b>date:  </b> 9/28/2019
 
 
 
