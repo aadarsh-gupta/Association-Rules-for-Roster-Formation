@@ -38,11 +38,11 @@ Roma has consistenly been a top-6 team in Serie A for many years now, occasional
 
 Following, I looked at the performance through the seasons (visualizing the different stages of a Serie A league season). Through this, it can be seen that a contrast in how the performance goes as the season progresses.
 
-    <b> 2008 - 2012 </b>
+   <b> 2008 - 2012 </b>
 <img src ="images/roma_2008-12.png" style ="zoom:25%;"/>
 
 
-    <b> 2012 - 2016 </b>
+   <b> 2012 - 2016 </b>
 
 <img src ="images/roma2012-16.png" style ="zoom:25%;"/>
    
